@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithms Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sorting Algorithms Visualization</h1>
+        <section id="user-greeting">
+            <h2>Welcome to the Sorting Algorithms Visualization Tool!</h2>
+            <p>Select a sorting algorithm, adjust the parameters, and visualize the sorting process.</p>
+        </section>
+        <section id="visualization-controls">
+            <div>
+                <label for="algorithm">Select Sorting Algorithm:</label>
+                <select id="algorithm">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                </select>
+            </div>
+            <div>
+                <label for="arraySize">Select Number of Bars:</label>
+                <input type="range" id="arraySize" min="1" max="100" value="10">
+                <span id="arraySizeValue">10</span>
+            </div>
+            <div>
+                <label for="dataset">Select Dataset:</label>
+                <select id="dataset">
+                    <option value="random">Random</option>
+                    <option value="sorted">Sorted</option>
+                    <option value="reversed">Reversed</option>
+                    <option value="nearly-sorted">Nearly Sorted</option>
+                </select>
+            </div>
+            <div>
+                <label for="speed">Adjust Speed:</label>
+                <input type="range" id="speed" min="1" max="100" value="50">
+                <span id="speedValue">50</span>
+            </div>
+            <button id="startButton">Start</button>
+            <button id="pauseButton">Pause</button>
+            <button id="resumeButton">Resume</button>
+            <button id="resetButton">Reset</button>
+            <button id="stepButton">Step</button>
+        </section>
+        <section id="visualization">
+            <div id="barsContainer"></div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
