@@ -160,89 +160,90 @@ document.addEventListener('DOMContentLoaded', function () {
         // Mark the remaining sorted bar
         bars[0].classList.add('bar-sorted');
     }
-    async function mergeSort(array, left, right) {
-        // Base case: return if the subarray has one or no elements
-        if (left >= right) {
-            return;
-        }
 
-        // Find the middle index to split the array
-        const middle = Math.floor((left + right) / 2);
+    // async function mergeSort(array, left, right) {
+    //     // Base case: return if the subarray has one or no elements
+    //     if (left >= right) {
+    //         return;
+    //     }
 
-        // Recursively sort the left and right halves
-        await mergeSort(array, left, middle);       // Sort left half
-        await mergeSort(array, middle + 1, right);  // Sort right half
+    //     // Find the middle index to split the array
+    //     const middle = Math.floor((left + right) / 2);
 
-        // Merge the sorted halves
-        await merge(array, left, middle, right);
-    }
+    //     // Recursively sort the left and right halves
+    //     await mergeSort(array, left, middle);       // Sort left half
+    //     await mergeSort(array, middle + 1, right);  // Sort right half
 
-    async function merge(array, left, middle, right) {
-        let bars = document.querySelectorAll('.bar');
+    //     // Merge the sorted halves
+    //     await merge(array, left, middle, right);
+    // }
 
-        // Create temporary arrays to store the left and right halves
-        let n1 = middle - left + 1;
-        let n2 = right - middle;
+    // async function merge(array, left, middle, right) {
+    //     let bars = document.querySelectorAll('.bar');
 
-        let leftArray = new Array(n1);
-        let rightArray = new Array(n2);
+    //     // Create temporary arrays to store the left and right halves
+    //     let n1 = middle - left + 1;
+    //     let n2 = right - middle;
 
-        // Copy data into the temporary arrays
-        for (let i = 0; i < n1; i++) {
-            leftArray[i] = array[left + i];
-            bars[left + i].classList.add('bar-sorting');  // Highlight the left partition bars
-        }
-        for (let i = 0; i < n2; i++) {
-            rightArray[i] = array[middle + 1 + i];
-            bars[middle + 1 + i].classList.add('bar-sorting');  // Highlight the right partition bars
-        }
+    //     let leftArray = new Array(n1);
+    //     let rightArray = new Array(n2);
 
-        await sleep(speed);  // Pause for visualization
+    //     // Copy data into the temporary arrays
+    //     for (let i = 0; i < n1; i++) {
+    //         leftArray[i] = array[left + i];
+    //         bars[left + i].classList.add('bar-sorting');  // Highlight the left partition bars
+    //     }
+    //     for (let i = 0; i < n2; i++) {
+    //         rightArray[i] = array[middle + 1 + i];
+    //         bars[middle + 1 + i].classList.add('bar-sorting');  // Highlight the right partition bars
+    //     }
 
-        // Merge the two arrays back into array[left..right]
-        let i = 0, j = 0, k = left;
-        while (i < n1 && j < n2) {
-            if (leftArray[i] <= rightArray[j]) {
-                array[k] = leftArray[i];
-                i++;
-            } else {
-                array[k] = rightArray[j];
-                j++;
-            }
-            updateBars();  // Update the bars in the UI
-            bars[k].classList.add('bar-sorting');  // Highlight the current bar being merged
-            await sleep(speed);  // Pause for visualization
-            bars[k].classList.remove('bar-sorting');  // Remove highlight after merging
-            k++;
-        }
+    //     await sleep(speed);  // Pause for visualization
 
-        // Copy any remaining elements of leftArray
-        while (i < n1) {
-            array[k] = leftArray[i];
-            updateBars();
-            bars[k].classList.add('bar-sorting');
-            await sleep(speed);
-            bars[k].classList.remove('bar-sorting');
-            i++;
-            k++;
-        }
+    //     // Merge the two arrays back into array[left..right]
+    //     let i = 0, j = 0, k = left;
+    //     while (i < n1 && j < n2) {
+    //         if (leftArray[i] <= rightArray[j]) {
+    //             array[k] = leftArray[i];
+    //             i++;
+    //         } else {
+    //             array[k] = rightArray[j];
+    //             j++;
+    //         }
+    //         updateBars();  // Update the bars in the UI
+    //         bars[k].classList.add('bar-sorting');  // Highlight the current bar being merged
+    //         await sleep(speed);  // Pause for visualization
+    //         bars[k].classList.remove('bar-sorting');  // Remove highlight after merging
+    //         k++;
+    //     }
 
-        // Copy any remaining elements of rightArray
-        while (j < n2) {
-            array[k] = rightArray[j];
-            updateBars();
-            bars[k].classList.add('bar-sorting');
-            await sleep(speed);
-            bars[k].classList.remove('bar-sorting');
-            j++;
-            k++;
-        }
+    //     // Copy any remaining elements of leftArray
+    //     while (i < n1) {
+    //         array[k] = leftArray[i];
+    //         updateBars();
+    //         bars[k].classList.add('bar-sorting');
+    //         await sleep(speed);
+    //         bars[k].classList.remove('bar-sorting');
+    //         i++;
+    //         k++;
+    //     }
 
-        // Mark the fully sorted section
-        for (let i = left; i <= right; i++) {
-            bars[i].classList.add('bar-sorted');
-        }
-    }
+    //     // Copy any remaining elements of rightArray
+    //     while (j < n2) {
+    //         array[k] = rightArray[j];
+    //         updateBars();
+    //         bars[k].classList.add('bar-sorting');
+    //         await sleep(speed);
+    //         bars[k].classList.remove('bar-sorting');
+    //         j++;
+    //         k++;
+    //     }
+
+    //     // Mark the fully sorted section
+    //     for (let i = left; i <= right; i++) {
+    //         bars[i].classList.add('bar-sorted');
+    //     }
+    // }
 
     async function quickSort(array, left, right) {
         if (left < right) {
