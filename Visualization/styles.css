@@ -31,6 +31,7 @@ h2 {
     justify-content: center;
 }
 
+/* Ensure the graph bars fit within fixed size #barContainer */
 /* Existing styles for the bars */
 .bar {
     flex: 1;
