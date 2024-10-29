@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Sorting Algorithms</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="code.html">Code</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Code Sorting Algorithms</h1>
+        <label for="languageSelect">Select Language:</label>
+        <select id="languageSelect">
+            <option value="python">Python</option>
+            <!-- More languages can be added here in the future -->
+        </select>
+
+        <div id="code_block" contenteditable="true" class="code-box">
+            <!-- User can type code here -->
+            # Type your sorting algorithm here...
+        </div>
+
+        <button id="submitBtn">Submit</button>
+        <button id="hintBtn">Hint</button>
+        <button id="restartBtn">Restart</button>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+</html>
